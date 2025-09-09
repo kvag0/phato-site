@@ -1,11 +1,9 @@
-// Ficheiro: src/app/layout.tsx
+// src/app/layout.tsx
 
 import './globals.css'
 import type { Metadata } from 'next'
-
-// Aqui poderíamos importar as nossas fontes customizadas com next/font
-// Ex: import { Inter } from 'next/font/google'
-// const inter = Inter({ subsets: ['latin'] })
+import Header from '@/components/organisms/Header'
+import Footer from '@/components/organisms/Footer'
 
 export const metadata: Metadata = {
   title: 'Phato | Iluminando o Contexto',
@@ -18,14 +16,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      {/* A classe do `body` é onde podemos aplicar a nossa fonte principal, se necessário */}
-      <body>
-        {/* O 'children' aqui será o conteúdo de cada página individual, como a nossa homepage */}
-        <main>
+    <html lang="pt-BR" className="h-full">
+      <body className="flex min-h-full flex-col bg-phato-black text-phato-text">
+        <Header />
+        <main className="flex-auto">
           {children}
         </main>
-        {/* No futuro, adicionaremos aqui o nosso Header e Footer */}
+        <Footer />
       </body>
     </html>
   )
