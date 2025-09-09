@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0d0d0d; /* Ou use @apply bg-phato-black; */
+  color: #a3a3a3; /* Ou use @apply text-phato-text; */
+}
