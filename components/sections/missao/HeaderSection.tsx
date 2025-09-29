@@ -3,7 +3,7 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
-import { ArrowDown, Shield, Target, Zap } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { headerContent } from "@/app/missao/content";
 import { useRef, useState } from "react";
 
@@ -20,7 +20,6 @@ export default function HeaderSection() {
       const h1 = containerRef.current.querySelector("h1");
       const p = containerRef.current.querySelector("p");
       const arrow = containerRef.current.querySelector(".scroll-indicator");
-      const icons = containerRef.current.querySelectorAll(".floating-icon");
       const buttons = containerRef.current.querySelectorAll("button");
 
 
@@ -70,18 +69,7 @@ export default function HeaderSection() {
           y: 0,
           duration: 0.5,
           ease: "power1.inOut",
-        }, "-=0.3")
-        .to(icons, {
-          autoAlpha: 1,
-          y: 0,
-          rotation: 0,
-          duration: 1.5,
-          ease: "elastic.out(1, 0.5)",
-          stagger: {
-            each: 0.1,
-            from: "random",
-          },
-        }, "-=0.5");
+        }, "-=0.3");
     },
     { scope: containerRef }
   );
@@ -120,17 +108,7 @@ export default function HeaderSection() {
         <ArrowDown className="h-6 w-6 text-highlight animate-glow-pulse" />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[max(100vw,100vh)] h-[max(100vw,100vh)] z-0">
-        <div className="floating-icon absolute top-[20%] left-[15%] w-12 h-12 flex items-center justify-center bg-highlight/5 border border-highlight/10 rounded-2xl shadow-lg shadow-highlight/5 text-highlight">
-            <Shield/>
-        </div>
-        <div className="floating-icon absolute top-[30%] right-[10%] w-12 h-12 flex items-center justify-center bg-highlight/5 border border-highlight/10 rounded-2xl shadow-lg shadow-highlight/5 text-highlight">
-            <Target/>
-        </div>
-        <div className="floating-icon absolute bottom-[25%] left-[25%] w-12 h-12 flex items-center justify-center bg-highlight/5 border border-highlight/10 rounded-2xl shadow-lg shadow-highlight/5 text-highlight">
-            <Zap/>
-        </div>
-      </div>
+      <div className="absolute inset-0 z-0" />
     </section>
   );
 }
